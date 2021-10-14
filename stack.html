@@ -35,6 +35,8 @@
 		</p>
         <input id="inputElement" type="text">
 		<button onclick="makeNewDiv()">Push value</button>
+        <button onclick="popItem()">Pop</button>
+        <button onclick="zap()">Zap values</button>
 	
 	
 </body>
@@ -52,5 +54,29 @@
         
 		
 	    }
+        function popItem()
+        {
+            var stackitems = document.getElementsByClassName("stack")
+            var length = stackitems.length
+            if(length>0)
+            stackitems[length-1].remove()
+        }
+        function zap()
+        {
+            var stackitems = document.getElementsByClassName("stack")
+            let input = document.getElementById("inputElement").value
+            if(stackitems!= undefined && stackitems.length >0){
+                for(let i=0; i<stackitems.length; i++)
+                {
+                    if(stackitems[i].innerHTML == input)
+                    {
+                        var removeVar = stackitems[i].innerHTML
+                        stackitems[i].remove()
+                        console.log(removeVar)
+                        i--
+                    }
+                }
+            }
+        }
 </script>
 </html>	
